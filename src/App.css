@@ -1,0 +1,56 @@
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e4e2e2;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(148, 147, 147);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 12px;
+  background: rgb(119, 118, 118);
+}
+/*
+.MuiTableRow-root td:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.MuiTableRow-root td:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+} */
+.Toastify__toast-container--top-center {
+  z-index: 9999999999999999 !important;
+}
+.carousel .control-arrow:before, .carousel.carousel-slider .control-arrow:before {
+  content: none !important;
+}
+.control-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0px !important;
+  width: 50px !important;
+  /* top: 50% !important; */
+  /* bottom: unset !important; */
+}
+.carousel.carousel-slider .control-arrow:hover {
+  background: transparent !important;
+}
+
+.__react_modal_image__modal_container {
+z-index: 9999999999999999999 !important;
+}
+.makeStyles-menuItemTextClick-52 {
+  color : "white"
+}
+.css-7ew9c3-MuiTypography-root {
+  color: "white"
+}

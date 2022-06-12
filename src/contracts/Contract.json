@@ -1,0 +1,1465 @@
+{
+  "version": "0.1.0",
+  "name": "authority",
+  "instructions": [
+    {
+      "name": "createSetting",
+      "accounts": [
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftCreator",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pda",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "rewardApy",
+          "type": "u8"
+        },
+        {
+          "name": "openPool",
+          "type": "u64"
+        },
+        {
+          "name": "unlockPool",
+          "type": "u64"
+        },
+        {
+          "name": "expirePool",
+          "type": "u64"
+        },
+        {
+          "name": "nftUnlock",
+          "type": "u64"
+        },
+        {
+          "name": "nftCliff",
+          "type": "u64"
+        },
+        {
+          "name": "nftUnlockReward",
+          "type": "u64"
+        },
+        {
+          "name": "nftCliffReward",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "updateAdmin",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "id",
+          "type": "u8"
+        },
+        {
+          "name": "admin",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
+      "name": "updateApy",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "apy",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "updatePool",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "openPool",
+          "type": "u64"
+        },
+        {
+          "name": "unlockPool",
+          "type": "u64"
+        },
+        {
+          "name": "expirePool",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "updateDyf",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dyf",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
+      "name": "updateNftReward",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "nftUnlock",
+          "type": "u64"
+        },
+        {
+          "name": "nftCliff",
+          "type": "u64"
+        },
+        {
+          "name": "nftUnlockReward",
+          "type": "u64"
+        },
+        {
+          "name": "nftCliffReward",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "poolCreateStakeAccount",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "stakingType",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "poolTokenStake",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "poolTokenUnstake",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pda",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "poolNftStake",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pda",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "poolNftClaimReward",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftTokenAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "pdaTokenAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pda",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "poolNftUnstake",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pda",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "dappCreate",
+      "accounts": [
+        {
+          "name": "dappSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dappTitle",
+          "type": "string"
+        },
+        {
+          "name": "openTime",
+          "type": "u64"
+        },
+        {
+          "name": "closeTime",
+          "type": "u64"
+        },
+        {
+          "name": "expireTime",
+          "type": "u64"
+        },
+        {
+          "name": "maxReward",
+          "type": "u64"
+        },
+        {
+          "name": "minToken",
+          "type": "u64"
+        },
+        {
+          "name": "maxToken",
+          "type": "u64"
+        },
+        {
+          "name": "rewardPerCall",
+          "type": "u64"
+        },
+        {
+          "name": "stakingType",
+          "type": "u8"
+        },
+        {
+          "name": "dappType",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "dappCreateStakeAccount",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dappSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dappTitle",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "dappClose",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "dappSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ownerVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dappTitle",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "dappUserReward",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dappSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "userToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "dappTitle",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "dappTokenStake",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dappSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dappVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "dappTitle",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "dappTokenUnstake",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dappVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dappSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dappTitle",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "dappNftStake",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dappSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pda",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dappTitle",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "dappNftUnstake",
+      "accounts": [
+        {
+          "name": "stakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dappSetting",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pda",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pdaToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dappTitle",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "PoolSetting",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "dyf",
+            "type": "publicKey"
+          },
+          {
+            "name": "mint",
+            "type": "publicKey"
+          },
+          {
+            "name": "nftCreator",
+            "type": "publicKey"
+          },
+          {
+            "name": "vault",
+            "type": "publicKey"
+          },
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "admins",
+            "type": {
+              "array": [
+                "publicKey",
+                3
+              ]
+            }
+          },
+          {
+            "name": "users",
+            "type": "u64"
+          },
+          {
+            "name": "openPool",
+            "type": "u64"
+          },
+          {
+            "name": "unlockPool",
+            "type": "u64"
+          },
+          {
+            "name": "expirePool",
+            "type": "u64"
+          },
+          {
+            "name": "rewarded",
+            "type": "u64"
+          },
+          {
+            "name": "rewardApy",
+            "type": "u8"
+          },
+          {
+            "name": "poolTvl",
+            "type": "u64"
+          },
+          {
+            "name": "snsReserve",
+            "type": "u64"
+          },
+          {
+            "name": "nftUnlockReward",
+            "type": "u64"
+          },
+          {
+            "name": "nftUnlock",
+            "type": "u64"
+          },
+          {
+            "name": "nftCliff",
+            "type": "u64"
+          },
+          {
+            "name": "nftCliffReward",
+            "type": "u64"
+          },
+          {
+            "name": "nftReserve",
+            "type": "u64"
+          },
+          {
+            "name": "nftTvl",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DappSetting",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "dappOwner",
+            "type": "publicKey"
+          },
+          {
+            "name": "dappAddress",
+            "type": "publicKey"
+          },
+          {
+            "name": "dappPool",
+            "type": "publicKey"
+          },
+          {
+            "name": "dappTitle",
+            "type": {
+              "array": [
+                "u8",
+                10
+              ]
+            }
+          },
+          {
+            "name": "dappType",
+            "type": {
+              "defined": "DappType"
+            }
+          },
+          {
+            "name": "dappStakeType",
+            "type": {
+              "defined": "StakingType"
+            }
+          },
+          {
+            "name": "dappMaxSns",
+            "type": "u64"
+          },
+          {
+            "name": "dappMinSns",
+            "type": "u64"
+          },
+          {
+            "name": "dappOpen",
+            "type": "u64"
+          },
+          {
+            "name": "dappClose",
+            "type": "u64"
+          },
+          {
+            "name": "dappExpire",
+            "type": "u64"
+          },
+          {
+            "name": "dappMaxReward",
+            "type": "u64"
+          },
+          {
+            "name": "dappCurrentReward",
+            "type": "u64"
+          },
+          {
+            "name": "dappSnsTvl",
+            "type": "u64"
+          },
+          {
+            "name": "dappNftTvl",
+            "type": "u64"
+          },
+          {
+            "name": "dappUsers",
+            "type": "u64"
+          },
+          {
+            "name": "dappRewardCall",
+            "type": "u64"
+          },
+          {
+            "name": "dappVault",
+            "type": "publicKey"
+          },
+          {
+            "name": "dappStatus",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StakeAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "dapp",
+            "type": "publicKey"
+          },
+          {
+            "name": "stakeType",
+            "type": {
+              "defined": "StakingType"
+            }
+          },
+          {
+            "name": "accountType",
+            "type": {
+              "defined": "StakeAccountType"
+            }
+          },
+          {
+            "name": "token",
+            "type": "publicKey"
+          },
+          {
+            "name": "user",
+            "type": "publicKey"
+          },
+          {
+            "name": "setting",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenAmount",
+            "type": "u64"
+          },
+          {
+            "name": "lockInTime",
+            "type": "i64"
+          },
+          {
+            "name": "lockOutTime",
+            "type": "i64"
+          },
+          {
+            "name": "pendingReward",
+            "type": "u64"
+          },
+          {
+            "name": "reward",
+            "type": "u64"
+          },
+          {
+            "name": "cliffReward",
+            "type": "f64"
+          },
+          {
+            "name": "unlockReward",
+            "type": "f64"
+          },
+          {
+            "name": "rewarded",
+            "type": "bool"
+          },
+          {
+            "name": "dyfUser",
+            "type": "bool"
+          },
+          {
+            "name": "status",
+            "type": "bool"
+          },
+          {
+            "name": "reserve",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "StakeAccountType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "POOL"
+          },
+          {
+            "name": "DAPP"
+          },
+          {
+            "name": "NotDefined"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StakingType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "SNS"
+          },
+          {
+            "name": "NFT"
+          },
+          {
+            "name": "Both"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DappType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "APP"
+          },
+          {
+            "name": "GAME"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidPDA",
+      "msg": "PDA account mismatch"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidAuthority",
+      "msg": "Invalid Authority"
+    },
+    {
+      "code": 6002,
+      "name": "UserAlreadyStakes",
+      "msg": "user already staked to this campaign"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidRole",
+      "msg": "user select invalid role"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidStakeOwner",
+      "msg": "Stake account is not belong to provided user"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidStakeStatus",
+      "msg": "User is not staked"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidTokenOwner",
+      "msg": "Token account is not belong to user"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidTokenMint",
+      "msg": "Token account mintis not same as SNS Mint"
+    },
+    {
+      "code": 6008,
+      "name": "InvalidStakeAccount",
+      "msg": "User did not stake to this campaign"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidOrder",
+      "msg": "User should call reward before call unstake"
+    },
+    {
+      "code": 6010,
+      "name": "UnstakeProhibted",
+      "msg": "User can not unstake until campaign finish"
+    },
+    {
+      "code": 6011,
+      "name": "RewardReedemedBefore",
+      "msg": "user can't call redeem reward twice"
+    },
+    {
+      "code": 6012,
+      "name": "RewardFinished",
+      "msg": "requested reward is more than available"
+    },
+    {
+      "code": 6013,
+      "name": "RewardAmount",
+      "msg": "the amount of reward is more than limit"
+    },
+    {
+      "code": 6014,
+      "name": "InvalidStakeType",
+      "msg": "This Stake not possible for this DAPP"
+    },
+    {
+      "code": 6015,
+      "name": "LockPeriod",
+      "msg": "user can't unstake before lockup time"
+    },
+    {
+      "code": 6016,
+      "name": "NFTRewardNotClaimed",
+      "msg": "user must claim reward before unstake"
+    },
+    {
+      "code": 6017,
+      "name": "NFTCliffRewardClaimed",
+      "msg": "all reward for 6 month period is claimed"
+    },
+    {
+      "code": 6018,
+      "name": "StartTime",
+      "msg": "stake called when stake period is finished"
+    },
+    {
+      "code": 6019,
+      "name": "ExpireTime",
+      "msg": "take token is called before expire time"
+    },
+    {
+      "code": 6020,
+      "name": "InvalidNFT",
+      "msg": "the NFT is not belong to KANON NFT"
+    },
+    {
+      "code": 6021,
+      "name": "InvalidAccount",
+      "msg": "Account data is invalid"
+    },
+    {
+      "code": 6022,
+      "name": "InvalidAmount",
+      "msg": "user can't stake more or less than pool limit"
+    },
+    {
+      "code": 6023,
+      "name": "InvalidMetadataAccount",
+      "msg": "user passed the invalid metadata account for NFT"
+    },
+    {
+      "code": 6024,
+      "name": "InvalidPool",
+      "msg": "user passed the invalid pool vault"
+    },
+    {
+      "code": 6025,
+      "name": "InvalidStakeAccountType",
+      "msg": "user passed the wrong stake account "
+    }
+  ],
+  "metadata": {
+    "address": "FVYh7KqBfPkZdWHqQ5Yo1q8ZG2njVVaPGfyP2fFrw7XK"
+  }
+}

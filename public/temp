@@ -1,0 +1,24 @@
+import React, { useEffect, useMemo, useState } from 'react';
+import { makeStyles, withStyles } from '@mui/styles';
+import { Button, Box, Typography } from '@mui/material';
+
+
+const useStyles = makeStyles((theme) => ({
+
+    root: {
+        width: 100
+    }
+    
+}));
+
+const HomeSection = () => {
+
+    const classes = useStyles();
+    /* create an account  */
+    return (
+        <Box className={classes.root}>
+        </Box>
+    );
+}
+
+export default HomeSection;
